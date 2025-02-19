@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}New Submission{% endblock %}
+
+{% block content %}
+
+<h1>Add New Code Submission</h1>
+<form method="post">
+    <table>
+        {{ form }}
+    </table>
+    <!-- The line below is to help with security -->
+    {% csrf_token %}
+    <button type="submit">Submit</button>
+</form>
+
+<p><a href="{% url 'home' %}">Home</a></p>
+
+{% endblock %}

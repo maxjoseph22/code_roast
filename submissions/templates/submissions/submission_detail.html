@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{submission.title}}{% endblock %}
+
+{% block content %}
+<h1>{{submission.title}}</h1>
+
+<h3>Original Code:</h3>
+<p>{{submission.code_submission}}</p>
+
+<h3>Feedback:</h3>
+<p>{{submission.feedback}}</p>
+
+<h3>Improved Code:</h3>
+<p>{{submission.improved_code}}</p>
+
+<h3>Roast:</h3>
+<p>{{submission.roast}}</p>
+
+<p><a href="{% url 'home' %}">Home</a></p>
+
+{% endblock %}

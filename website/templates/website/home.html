@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Code Roast{% endblock %}
+
+{% block content %}
+    <h1>Code Roast: Home Page</h1>
+    <p>
+        The go to place to get abuse for how poorly you've written your code! <br />
+        <em>Powered by Django</em><br />
+        If you need more abuse than we can give you, try our friends at 
+        <a href="http://www.robietherobot.com/insult-generator.htm">Robbie The Robot</a>
+    </p>
+
+    <img src="{% static 'website/coding_icon.png' %}" width="100px">
+
+    <h2>Hi USERNAME Here are your Code Submissions:</h2>
+    <ul>
+        {% for submission in submissions %}
+            <li>
+                <p><a href="{% url 'submission_detail' submission.id %}">
+                    {{submission.title}}
+                </a> - {{submission.roast}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Click 
+        <a href="{% url 'new' %}">here</a>
+        to upload a new code submission</p>
+{% endblock %}
